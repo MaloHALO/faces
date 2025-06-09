@@ -1,0 +1,21 @@
+@use 'src/assets/styles/mixins';
+
+.footer-menu {
+  display: grid;
+  gap: 30px;
+  max-width: 1000px;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media screen and (max-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: none;
+  }
+
+  &__link {
+    @include mixins.link-yellow-underline;
+  }
+}

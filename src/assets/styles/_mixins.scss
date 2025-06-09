@@ -1,0 +1,61 @@
+@use 'sass:math';
+@use 'sass:list';
+@use 'src/assets/styles/variables/colors';
+
+@mixin container1280 {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 16px;
+}
+
+@mixin font($font-typography, $font-weight: 400) {
+  $max: list.nth($font-typography, 1);
+  $min: list.nth($font-typography, 2);
+
+  @if not $min {
+    font-size: list.nth($max, 1);
+    font-weight: $font-weight;
+    line-height: list.nth($max, 2);
+  } @else {
+    font-size: clamps(list.nth($min, 1), list.nth($max, 1));
+    font-weight: $font-weight;
+    line-height: clamps(list.nth($min, 2), list.nth($max, 2));
+  }
+}
+
+@mixin link-yellow-underline {
+  padding: 12px 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: colors.$light-yellow;
+    transform: scaleX(0);
+    transition: transform .5s ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+@function clamp-medium-value($min-value, $max-value) {
+  $min-width: 375px;
+  $max-width: 1440px;
+  $slope: calc(($max-value - $min-value) / ($max-width - $min-width));
+  $y-axis-intersection: calc($min-width * -1 * $slope + $min-value);
+
+  @return $y-axis-intersection + ' + ' + $slope * 100 + 'vw';
+}
+
+@function clamps($min-value, $max-value) {
+  $medium-value: clamp-medium-value($min-value, $max-value);
+
+  @return clamp(#{$min-value}, #{$medium-value}, #{$max-value});
+}

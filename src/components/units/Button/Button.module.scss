@@ -1,0 +1,26 @@
+@use '/src/assets/styles/variables/colors';
+
+.button {
+  color: colors.$eerie-black;
+  font-size: 16px;
+  line-height: 1;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: background .2s ease, border .2s ease;
+  background-color: colors.$golden-sand;
+  border: none;
+  border-radius: 26px;
+
+  &_outline {
+    background-color: transparent;
+    border: 2px solid colors.$golden-sand;
+  }
+
+  &_secondary {
+    background-color: colors.$white;
+  }
+
+  &_width-fill {
+    width: 100%;
+  }
+}

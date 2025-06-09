@@ -1,0 +1,43 @@
+@use 'src/assets/styles/variables/typography';
+@use 'src/assets/styles/variables/colors';
+@use 'src/assets/styles/mixins';
+
+body {
+  font: 400 16px/1.5 "Calibri";
+  box-sizing: content-box;
+  background-color: colors.$anti-flash-white;
+}
+
+main {
+  display: grid;
+  row-gap: mixins.clamps(80px, 100px);
+}
+
+main,
+header {
+  @include mixins.container1280;
+}
+
+h1 {
+  @include mixins.font(typography.$font-60px-to-28px);
+}
+
+h2 {
+  @include mixins.font(typography.$font-40px-to-24px);
+}
+
+h3 {
+  @include mixins.font(typography.$font-28px-to-20px);
+}
+
+a {
+  text-decoration: none;
+  color: colors.$black;
+}
+
+mark {
+  line-height: 1;
+  padding: 0 0.35em;
+  border-radius: 0.2em;
+  background-color: colors.$golden-sand;
+}

@@ -1,0 +1,43 @@
+@use '/src/assets/styles/variables/colors';
+@use '/src/assets/styles/mixins';
+
+.header {
+  $selector: &;
+
+  margin: 22px auto;
+  display: grid;
+  row-gap: 16px;
+  padding-bottom: mixins.clamps(60px, 80px);
+
+  &__logo {
+    translate: 0 1px;
+
+    @media screen and (max-width: 1200px) {
+      translate: none;
+    }
+  }
+
+  &__top-level {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid colors.$platinum;
+    position: relative;
+    z-index: 1;
+
+    @media screen and (max-width: 1200px) {
+      padding-bottom: 0;
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+    }
+
+    #{$selector}__top-level-column {
+      display: flex;
+      column-gap: mixins.clamps(5px, 20px);
+      align-items: center;
+    }
+  }
+}

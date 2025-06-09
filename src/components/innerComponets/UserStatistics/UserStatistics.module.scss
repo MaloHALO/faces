@@ -1,0 +1,28 @@
+@use '/src/assets/styles/variables/colors';
+
+.user-statistics {
+  $selector: &;
+
+  display: grid;
+  row-gap: 20px;
+  color: colors.$light-gray;
+
+  a {
+    color: colors.$light-gray;
+    border-bottom: dashed colors.$light-gray;
+  }
+
+  &__contacts {
+    #{$selector}__contacts-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__candidates {
+    #{$selector}__candidates-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use 'src/assets/styles/variables/colors';
+@use 'src/assets/styles/mixins';
+
+.footer {
+  background-color: colors.$white;
+  padding: 44px 0;
+  margin-top: mixins.clamps(40px, 60px);
+
+  &__container {
+    @include mixins.container1280;
+
+    display: grid;
+    row-gap: 56px;
+  }
+
+  &__copyright {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 12px;
+    justify-content: space-between;
+    border-top: 1px solid colors.$platinum;
+    padding-top: 30px;
+  }
+}

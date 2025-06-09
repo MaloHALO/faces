@@ -1,0 +1,70 @@
+@use '/src/assets/styles/variables/colors';
+@use 'src/assets/styles/mixins';
+
+.menu {
+  $selector: &;
+
+  &_is-modal {
+    #{$selector}__list {
+      display: grid;
+      row-gap: 15px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+  }
+
+  &__list-more-open {
+    svg {
+      rotate: 180deg;
+    }
+
+    #{$selector}__more {
+      & > div {
+        span {
+          &:nth-child(1) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__list-more-close {
+    #{$selector}__item-hidden {
+      display: none;
+    }
+
+    #{$selector}__more {
+      & > div {
+        span {
+          &:nth-child(2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    opacity: 1;
+    transition: opacity .2s ease;
+  }
+
+  &__link {
+    @include mixins.link-yellow-underline;
+  }
+
+  &__more {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+      transition: rotate 0.5s ease;
+    }
+  }
+}

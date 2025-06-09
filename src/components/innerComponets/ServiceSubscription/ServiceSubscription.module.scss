@@ -1,0 +1,31 @@
+@use '/src/assets/styles/variables/colors';
+
+.service-subscription {
+  &__subscription-title {
+    margin-bottom: 30px;
+  }
+
+  &__subscription-content {
+    display: grid;
+    row-gap: 15px;
+  }
+
+  &__subscription-offers {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    div {
+      display: flex;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+
+      &:nth-child(2) {
+        margin-left: 15px;
+      }
+    }
+  }
+}
